@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { API_URL, IS_PRODUCTION } from '@core/env.token';
 
@@ -15,7 +15,14 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 })
 export class HomeComponent {
   envs = {
-    url: inject(API_URL),
+    url: this.API_URL,
     prod: inject(IS_PRODUCTION),
   };
+
+  constructor(@Inject(API_URL) private API_URL: string) {
+    fetch(this.API_URL + '/siema')
+      .then(res => res.json())
+      .then(console.log)
+      .catch(console.warn);
+  }
 }
