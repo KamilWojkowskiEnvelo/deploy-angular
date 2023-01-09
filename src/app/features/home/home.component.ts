@@ -7,7 +7,7 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
   standalone: true,
   imports: [RouterOutlet],
   template: `
-    application shell | {{ envs.url }} | {{ envs.prod }}
+    application shell on develop! | {{ envs.url }} | {{ envs.prod }}
     <router-outlet></router-outlet>
   `,
   styles: [],
