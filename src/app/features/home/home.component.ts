@@ -20,7 +20,7 @@ export class HomeComponent {
   };
 
   constructor(@Inject(API_URL) private API_URL: string) {
-    fetch(this.API_URL + '/siema')
+    fetch(this.API_URL + '/data')
       .then(res => res.json())
       .then(console.log)
       .catch(console.warn);
